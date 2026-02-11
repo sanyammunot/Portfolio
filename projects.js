@@ -7,7 +7,7 @@ const projects = [
       "Designed, built, and deployed a real-time chat system using React, Node.js, MongoDB, and WebSockets with authentication, real-time messaging, and user presence.",
     tags: ["React", "Node.js", "MongoDB", "WebSockets", "JWT"],
     source: "https://github.com/sanyammunot/chatApplication",
-    demo: "#",
+    demo: "https://fullstack-chat-app-oxnh.onrender.com/",
     videoSrc: "videos/chat-demo.mp4", // update to your actual path
   },
   {
@@ -16,9 +16,19 @@ const projects = [
       "Built a full-stack food delivery platform with dual panels (user/admin), integrated Stripe payments, JWT authentication, role-based access, and order tracking.",
     tags: ["React", "Node.js", "Express", "MongoDB", "Stripe", "JWT"],
     source: "https://github.com/sanyammunot/FoodApp",
-    demo: "#",
+    demo: "https://food-app-frontend-woad.vercel.app/",
     videoSrc: "videos/food-demo.mp4", // update to your actual path
   },
+  {
+    title: "Real-Time Leaderboard System",
+    description:
+      "Designed and deployed a scalable real-time leaderboard system using Go (Gin), Redis, PostgreSQL, and React Native. Implemented efficient ranking with tie handling, bucket-based optimization, and low-latency updates for high-concurrency environments.",
+    tags: ["Go", "Gin", "PostgreSQL", "Redis", "React Native", "Docker"],
+    source: "https://github.com/sanyammunot/Real-Time-Leaderboard",
+    demo: "https://real-time-leaderboard-sigma.vercel.app/", // update if deployed web version
+    videoSrc: "videos/leaderboard-demo.mp4", // update to your actual path
+  },
+
 ];
 
 function renderProjects() {
@@ -34,6 +44,16 @@ function renderProjects() {
       const video = p.videoSrc
         ? `<video src="${p.videoSrc}" class="project-video" autoplay loop muted playsinline></video>`
         : `<div class="project-preview-text">●</div>`;
+
+      const demoLink = p.demo
+        ? `<a href="${p.demo}" class="project-link" target="_blank">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              Live Demo
+            </a>`
+        : "";
 
       return `
       <div class="project-card">
@@ -53,13 +73,7 @@ function renderProjects() {
               </svg>
               Source
             </a>
-            <a href="${p.demo}" class="project-link" target="_blank">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-              Demo
-            </a>
+            ${demoLink}
           </div>
         </div>
       </div>
